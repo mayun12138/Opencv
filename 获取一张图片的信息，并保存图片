@@ -1,0 +1,35 @@
+"""获取一张图片的信息，并保存图片"""
+import cv2 as cv
+import numpy as np
+
+def get_image_info(image):
+    #输出图片的格式
+    print(type(image))
+
+    #输出图片的高度、宽度、通道数
+    print(image.shape)
+
+    #输出图片的尺寸
+    print(image.size)
+
+    #输出图片的字节
+    print(image.dtype)
+
+    data = np.array(image)
+    print(data)
+
+
+print("--------Hello World--------")
+src = cv.imread("D:/tp/Lina.jpg")
+cv.namedWindow("input image",cv.WINDOW_AUTOSIZE)
+cv.imshow("input image",src)
+get_image_info(src)
+
+#图片保存
+#图片转化为灰度图
+gray = cv.cvtColor(src,cv.COLOR_BGR2GRAY)
+cv.imwrite("D:/tp/tp.jpg",gray)
+
+cv.waitKey(0)
+
+cv.destroyAllWindows()
